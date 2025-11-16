@@ -3,6 +3,7 @@
   "name": "BugCapture - Screenshot & Video Recorder",
   "version": "1.0.0",
   "description": "Capture screenshots and record videos, automatically upload to Google Drive with shareable links",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAutCHy1FxW2cGv71VN1z/IQdmLKZnspjHcCs6kvhlSIw2BgSlAqUhifoRSV63+ioEEJZZV85cWIk6zlSLX8YEHCGcUaXwX2em4SIZ4bsn7i44KZxhbnry184d4/VzcHDAkaTRc8v1DOMYa+gT95o5Bu0uuGrFhv2FZfPohnWp/NhsrLrjTDG2sTagmt7B1AP0Lg4vROcti09DrWZux1EmL4zX4/J0Ide1DKmO0lQUJWTnWhGdKTLJmOoqWZ0NUgxVm1if9/Ar54KpXeTR7ZRpmm4y8mmUSwuPEHNHkATyBXJP0WFGC0STvzxYvyFMDMXrLWGg4bnyld4eD0ZbI539dwIDAQAB",
   "permissions": [
     "activeTab",
     "tabCapture",
