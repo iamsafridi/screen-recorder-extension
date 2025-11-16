@@ -1,4 +1,12 @@
-### Step 1: Load Extension in Browser
+
+### Step 1: Create Icons
+
+1. Open `create-icons.html` in your browser
+2. Click "Generate Icons" button
+3. Three PNG files will download
+4. Move all 3 files to the `icons/` folder in this directory
+
+### Step 2: Load Extension in Browser
 
 **For Chrome:**
 1. Open Chrome
@@ -16,7 +24,7 @@
 5. Select this folder
 6. Extension should appear with your icon
 
-### Step 2: Pin Extension (Optional but Recommended)
+### Step 3: Pin Extension (Optional but Recommended)
 
 1. Click the puzzle icon in browser toolbar
 2. Find "BugCapture"
