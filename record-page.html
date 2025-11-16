@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Record Video</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+    }
+    #startBtn {
+      background: #4CAF50;
+      color: white;
+    }
+    #stopBtn {
+      background: #f44336;
+      color: white;
+      display: none;
+    }
+    #status {
+      margin: 20px 0;
+      font-size: 16px;
+    }
+    #timer {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f44336;
+    }
+    video {
+      max-width: 100%;
+      margin: 20px 0;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎥 Record Video</h1>
+  <div id="status">Click Start to begin recording</div>
+  <div id="timer"></div>
+  
+  <button id="startBtn">Start Recording</button>
+  <button id="stopBtn">Stop Recording</button>
+  
+  <video id="preview" controls></video>
+  <div id="download" style="display:none;">
+    <a id="downloadLink" download="recording.webm">
+      <button style="background: #2196F3; color: white;">Download Video</button>
+    </a>
+  </div>
+  
+  <script src="record-page.js"></script>
+</body>
+</html>

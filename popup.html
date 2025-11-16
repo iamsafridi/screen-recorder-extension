@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BugCapture</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🐛 BugCapture</h1>
+    
+    <div class="section">
+      <h2>Capture</h2>
+      <button id="screenshot" class="btn btn-primary">📸 Screenshot</button>
+      <button id="startRecord" class="btn btn-primary">🎥 Start Recording</button>
+      <button id="stopRecord" class="btn btn-danger" style="display:none;">⏹️ Stop Recording</button>
+      <div id="recordingTimer" style="display: none; text-align: center; color: #ea4335; font-weight: bold; margin-top: 8px;">
+        Recording: <span id="timer">00:00</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📁 Drive Folder</h2>
+      <div id="driveFolderDisplay" style="margin-bottom: 8px;"></div>
+      <button id="selectDriveFolder" class="btn" style="background: #34a853; color: white;">
+        📁 Select Drive Folder
+      </button>
+      <button id="createNewFolder" class="btn" style="background: #34a853; color: white;">
+        ➕ Create New Folder
+      </button>
+    </div>
+
+
+
+    <div class="section">
+      <h2>Recent Captures</h2>
+      <div id="captureList"></div>
+    </div>
+
+    <div class="section">
+      <h2>Quick Actions</h2>
+      <button id="openDrive" class="btn" style="background: #34a853; color: white;">📁 Open Drive Folder</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

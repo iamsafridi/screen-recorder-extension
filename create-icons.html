@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Extension Icons</title>
+</head>
+<body>
+  <h2>Icon Generator</h2>
+  <p>Click the button to generate and download extension icons:</p>
+  <button onclick="createIcons()">Generate Icons</button>
+  <div id="status"></div>
+  
+  <script>
+    function createIcons() {
+      const sizes = [16, 48, 128];
+      
+      sizes.forEach(size => {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        
+        // Background
+        ctx.fillStyle = '#4285f4';
+        ctx.fillRect(0, 0, size, size);
+        
+        // Camera body
+        ctx.fillStyle = 'white';
+        const bodyWidth = size * 0.7;
+        const bodyHeight = size * 0.4;
+        const bodyX = (size - bodyWidth) / 2;
+        const bodyY = size * 0.35;
+        ctx.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+        
+        // Lens
+        ctx.fillStyle = '#4285f4';
+        const lensRadius = size * 0.15;
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, lensRadius, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Viewfinder
+        ctx.fillStyle = 'white';
+        const vfWidth = size * 0.15;
+        const vfHeight = size * 0.1;
+        ctx.fillRect(size * 0.425, size * 0.2, vfWidth, vfHeight);
+        
+        // Download
+        canvas.toBlob(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `icon${size}.png`;
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+      });
+      
+      document.getElementById('status').innerHTML = '<p style="color: green;">✓ Icons generated! Check your downloads folder and move them to the icons/ folder.</p>';
+    }
+  </script>
+</body>
+</html>

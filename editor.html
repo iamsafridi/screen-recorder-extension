@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Annotate Capture</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a1a;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    #toolbar {
+      background: #2d2d2d;
+      padding: 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 100;
+    }
+    
+    .tool-btn {
+      padding: 8px 16px;
+      border: 2px solid #444;
+      background: #3a3a3a;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .tool-btn:hover {
+      background: #4a4a4a;
+      border-color: #666;
+    }
+    
+    .tool-btn.active {
+      background: #667eea;
+      border-color: #667eea;
+    }
+    
+    .color-picker {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #444;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
+    .size-slider {
+      width: 100px;
+    }
+    
+    .divider {
+      width: 1px;
+      height: 30px;
+      background: #444;
+      margin: 0 8px;
+    }
+    
+    #canvasContainer {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+      position: relative;
+      padding: 20px;
+    }
+    
+    #canvas {
+      cursor: crosshair;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    #saveBtn {
+      background: #34a853;
+      border-color: #34a853;
+      font-weight: 600;
+      margin-left: auto;
+    }
+    
+    #saveBtn:hover {
+      background: #2d8e47;
+    }
+    
+    #cancelBtn {
+      background: #ea4335;
+      border-color: #ea4335;
+    }
+    
+    #cancelBtn:hover {
+      background: #d33426;
+    }
+    
+    .label {
+      color: #aaa;
+      font-size: 12px;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <button class="tool-btn active" data-tool="arrow" title="Draw Arrow">➡️ Arrow</button>
+    <button class="tool-btn" data-tool="rectangle" title="Draw Rectangle">⬜ Rectangle</button>
+    <button class="tool-btn" data-tool="circle" title="Draw Circle">⭕ Circle</button>
+    <button class="tool-btn" data-tool="pen" title="Free Draw">✏️ Pen</button>
+    <button class="tool-btn" data-tool="text" title="Add Text">📝 Text</button>
+    
+    <div class="divider"></div>
+    
+    <span class="label">Color:</span>
+    <input type="color" id="colorPicker" class="color-picker" value="#ff0000">
+    
+    <span class="label">Size:</span>
+    <input type="range" id="sizeSlider" class="size-slider" min="1" max="10" value="3">
+    <span id="sizeLabel" class="label">3</span>
+    
+    <div class="divider"></div>
+    
+    <button class="tool-btn" id="undoBtn" title="Undo">↶ Undo</button>
+    <button class="tool-btn" id="clearBtn" title="Clear All">🗑️ Clear</button>
+    
+    <button class="tool-btn" id="cancelBtn">Cancel</button>
+    <button class="tool-btn" id="saveBtn">✓ Save & Upload</button>
+  </div>
+  
+  <div id="canvasContainer">
+    <canvas id="canvas"></canvas>
+  </div>
+  
+  <script src="editor.js"></script>
+</body>
+</html>
+""
