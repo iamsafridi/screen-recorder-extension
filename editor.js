@@ -2,7 +2,7 @@
 let canvas, ctx;
 let img = new Image();
 let isDrawing = false;
-let currentTool = 'arrow';
+let currentTool = null; // No tool selected by default
 let currentColor = '#ff0000';
 let lineWidth = 3;
 let startX, startY;
@@ -55,6 +55,13 @@ function init() {
       document.querySelectorAll('[data-tool]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentTool = btn.dataset.tool;
+      
+      // Update cursor based on tool
+      if (currentTool) {
+        canvas.style.cursor = 'crosshair';
+      } else {
+        canvas.style.cursor = 'default';
+      }
     });
   });
   
@@ -85,6 +92,8 @@ function init() {
 }
 
 function handleMouseDown(e) {
+  if (!currentTool) return; // No tool selected, do nothing
+  
   const rect = canvas.getBoundingClientRect();
   startX = e.clientX - rect.left;
   startY = e.clientY - rect.top;
